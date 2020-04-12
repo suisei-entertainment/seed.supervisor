@@ -28,6 +28,9 @@ DEFAULT_CONFIG_DIRECTORY = '/config'
 # Path to the directory containing the service definitions used by the daemon.
 DEFAULT_SERVICES_DIRECTORY = '/services'
 
+# Path to the directory where application data used by the daemon is stored.
+DEFAULT_DATA_DIRECTORY = '/data'
+
 # Path to the directory where the daemon will store its log files.
 DEFAULT_LOG_DIRECTORY = '/logs'
 

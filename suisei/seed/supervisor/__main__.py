@@ -22,14 +22,30 @@
 Contains the entry point of the SEED supervisor daemon.
 """
 
+# SEED Imports
+from suisei.seed.utils import CliProcessor
+
+from .constants import (
+    CLI_COMMAND_MAP,
+    CLI_DESCRIPTION_STRING,
+    CLI_EPILOGUE_STRING,
+    CLI_USAGE_STRING)
+
 def main() -> None:
 
     """
     The entry point of the SEED supervisor daemon.
     """
 
-    # Whether or not the daemon should be started in debug mode.
-    debug_mode = False
+    cli_processor = CliProcessor(
+        command_map=CLI_COMMAND_MAP,
+        description_string=CLI_DESCRIPTION_STRING,
+        usage_string=CLI_USAGE_STRING,
+        epilog_string=CLI_EPILOGUE_STRING)
+
+    cli_processor.process(
+        args=sys.argv[1:],
+        cb_argument_processor=Supervisor.cb_process_command_line)
 
 if __name__ == '__main__':
     main()
